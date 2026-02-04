@@ -8,7 +8,7 @@ import (
 func main() {
 	// CONCORRENCIA != PARALELISMO
 
-	escrever("Olá mundo")
+	go escrever("Olá mundo") //goroutine
 	escrever("Programando em Go!")
 }
 
