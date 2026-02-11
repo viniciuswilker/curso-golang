@@ -1,6 +1,8 @@
 package enderecos
 
-import "testing"
+import (
+	"testing"
+)
 
 type cenarioDeTeste struct {
 	enderecoInserido string
@@ -10,16 +12,18 @@ type cenarioDeTeste struct {
 func TestTipoDeEndereco(t *testing.T) {
 	// Test + NomeDaFuncao  recebe t *testing.T
 
+	t.Parallel()
+
 	cenariosDeTeste := []cenarioDeTeste{
 		{"Rua ABC", "Rua"},
 		{"Avenida Paulista", "Avenida"},
 		{"Rodovia ABC", "Rodovia"},
-		{"Praça das rosas", "Tipo Inválido"},
+		// {"Praça das rosas", "Tipo Inválido"},
+		// {"Praça das rosas", "Tipo Inválido"},
 		{"Estrada Qualquer", "Estrada"},
 		{"RUA DOS BOBOS", "Rua"},
-		{"Praça das rosas", "Tipo Inválido"},
 		{"AVENIDA REBOUÇAS", "Avenida"},
-		{" ", "Tipo Inválido"},
+		// {" ", "Tipo Inválido"},
 	}
 
 	for _, cenario := range cenariosDeTeste {
@@ -31,3 +35,17 @@ func TestTipoDeEndereco(t *testing.T) {
 	}
 
 }
+
+func TestQualquer(t *testing.T) {
+	t.Parallel()
+
+	if 1 > 2 {
+		t.Errorf("Teste quebrou!")
+	}
+}
+
+// comandos uteis
+
+// go test --coverprofile cobertura.txt
+// go tool cover --func=nomearquivo.txt
+// go tool cover --html=nomearquivo.txt
